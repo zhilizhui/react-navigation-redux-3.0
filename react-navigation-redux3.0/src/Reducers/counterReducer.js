@@ -1,5 +1,5 @@
-import { incrementCounter, decrementCounter } from "../Actions/actionTypes";
-
+import { incrementCounter, decrementCounter,asyncdecrementCounter } from "../Actions/actionTypes";
+import {Alert} from 'react-native'
 const initialState = { counter: 0 };
 
 const counterReducer = (state = initialState, action) => {
@@ -8,8 +8,11 @@ const counterReducer = (state = initialState, action) => {
       return { ...state, counter: state.counter + 1 };
 
     case decrementCounter:
-      return { ...state, counter: state.counter - 1 };
 
+      return { ...state, counter: state.counter - 1 };
+    case asyncdecrementCounter:
+      // Alert.alert('发大水'+state.counter)
+      return { ...state, counter: state.counter - 2 };
     default:
       return state;
   }
