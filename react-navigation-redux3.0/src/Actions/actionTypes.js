@@ -1,4 +1,4 @@
 const incrementCounter = "INCREMENT_COUNTER";
 const decrementCounter = "DECREMENT_COUNTER";
-
-export { incrementCounter, decrementCounter };
+const asyncdecrementCounter = "ASYNCDECREMENT_COUNTER"
+export { incrementCounter, decrementCounter,asyncdecrementCounter };
