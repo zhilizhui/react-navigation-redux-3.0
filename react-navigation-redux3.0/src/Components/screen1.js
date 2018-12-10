@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity,Alert } from "react-native";
 import { NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
 
-import { incrementAction, decrementAction } from "../Actions/actionCreator";
+import { incrementAction, decrementAction,asyncdecrementAction } from "../Actions/actionCreator";
 
 class Screen1View extends Component {
   static navigationOptions = {
@@ -19,7 +19,8 @@ class Screen1View extends Component {
   };
 
   render() {
-    const { counterCount, incrementAction, decrementAction } = this.props;
+    const { counterCount, incrementAction, decrementAction,asyncdecrementAction } = this.props;
+    // Alert.alert(JSON.stringify(asyncdecrementAction))
     return (
       <View
         style={{
@@ -63,6 +64,20 @@ class Screen1View extends Component {
           <Text style={{ fontSize: 23, fontWeight: "600", color: "white" }}>
             Screen2
           </Text>
+          
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            paddingVertical: 15,
+            paddingHorizontal: 40,
+            backgroundColor: "indigo"
+          }}
+          onPress={() => asyncdecrementAction()}
+        >
+          <Text style={{ fontSize: 23, fontWeight: "600", color: "white" }}>
+            Screen3
+          </Text>
+          
         </TouchableOpacity>
       </View>
     );
@@ -75,7 +90,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   incrementAction,
-  decrementAction
+  decrementAction,
+  asyncdecrementAction
 };
 
 const Screen1 = connect(mapStateToProps, mapDispatchToProps)(Screen1View);
